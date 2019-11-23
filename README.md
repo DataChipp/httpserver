@@ -3,14 +3,18 @@ An HTTP Server implemented using Azure Functions
 
 ## Running with port 8080:
 
-VS Code  - run from the debugger
----
-Terminal 
+**VS Code**
+```javascript
+run from the debugger
+```
+
+**Terminal **
 ```javascript
 func start --port 8080
 ```
----
-Azure Function - !replace datachipp with your function app name!
+
+**Azure Function**
+!replace datachipp with your function app name!
 $ az login
 ONLY IF YOU HAVE LINUX:  $ az login --use-device-code
 
@@ -25,7 +29,6 @@ In Azure Portal
 
 
 
----
 
 
 

@@ -8,7 +8,7 @@ An HTTP Server implemented using Azure Functions
 run from the debugger
 ```
 
-**Terminal **
+**Terminal**
 ```javascript
 func start --port 8080
 ```

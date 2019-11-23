@@ -15,8 +15,11 @@ func start --port 8080
 
 **Azure Function**
 replace datachipp with your function app name  
+
+```
 $ az login  
-if need to login as device:  $ az login --use-device-code  
+```
+* if need to login as device:  $ az login --use-device-code  
 
 ```javascript
 $ az group create --name datachipp --location centralus
@@ -26,6 +29,15 @@ $ func azure functionapp publish datachipp
 ```
 
 In Azure Portal
+Select your function app  
+Click the "Platform features" tab   
+Click the "Configuration" link
+Click the "+ New application setting"
+```
+Name  = WEB_HOST
+Value = https://localhost
+```
+
 
 
 

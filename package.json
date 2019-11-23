@@ -1,0 +1,9 @@
+{
+  "name": "httpserver",
+  "version": "1",
+  "description": "Datachipp httpserver to server static assets",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": ""
+}

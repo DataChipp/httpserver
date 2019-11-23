@@ -18,8 +18,6 @@ function getExtension(filename) {
 
 module.exports = async function (context, req) {
     var file = "index.html"; //default file
-    var modified = false;
-
     if (req.query.file) file = req.query.file;
 
     // if no file extension given, default to html (about ==> about.html)
@@ -31,10 +29,8 @@ module.exports = async function (context, req) {
     var ext = getExtension(file);
     var contentType = mimeType[ext] || 'text/plain';
 
-    //file = file.replace(/\//g, "\\");
-
     try {
-        context.log('GET ' + __dirname + "//content//" + file);
+        context.log('GET ' + __dirname + "//..//content//" + file);
         const data = await readFileAsync(__dirname + "//..//content//" + file);
 
         context.res = {
@@ -46,36 +42,19 @@ module.exports = async function (context, req) {
             }
         };
     } catch (e) {
+        context.log("Error: " + e);
+
         if (e.code == "ENOENT") {
-            try {   // try if its a folder request, default to index.html
-                file = file.replace(".html", "/index.html");
-                contentType = mimeType[ext] || 'text/plain';
-                const data = await readFileAsync(__dirname + "//..//content//" + file);
-
-                context.res = {
-                    status: 200,
-                    body: data,
-                    isRaw: true,
-                    headers: {
-                        'Content-Type': contentType
-                    }
-                }
-            } catch (e) {
-                context.log("Error: " + e);
-
-                context.res = {
-                    status: 404,
-                    body: "Not Found.",
-                    headers: {
-                    }
-                };
-            }
-        } else {
-            context.log("Error: " + e);
-
             context.res = {
                 status: 404,
                 body: "Not Found.",
+                headers: {
+                }
+            };
+        } else {
+            context.res = {
+                status: 500,
+                body: "500 Internal Server Error.",
                 headers: {
                 }
             };

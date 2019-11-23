@@ -21,6 +21,9 @@ $ az functionapp create --name getfile --storage-account datachippstorage --reso
 $ func azure functionapp publish datachipp
 ```
 
+In Azure Portal
+
+
 
 ---
 

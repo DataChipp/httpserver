@@ -14,9 +14,9 @@ func start --port 8080
 ```
 
 **Azure Function**
-replace datachipp with your function app name
-$ az login
-if need to login as device:  $ az login --use-device-code
+replace datachipp with your function app name  
+$ az login  
+if need to login as device:  $ az login --use-device-code  
 
 ```javascript
 $ az group create --name datachipp --location centralus

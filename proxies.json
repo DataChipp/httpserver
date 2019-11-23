@@ -8,7 +8,7 @@
                     "GET"
                 ]
             },
-            "backendUri": "https://localhost/api/getfile?file={file}"
+            "backendUri": "%WEB_HOST%/api/getfile?file={file}"
         }
     }
 }

@@ -1,7 +1,8 @@
 // include file system library
 const fs = require("fs");
-const { promisify } = require('util')
-const readFileAsync = promisify(fs.readFile)
+const util = require('util');
+const readFileAsync = util.promisify(fs.readFile);
+//fs read async: https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node
 
 const mimeType = {
     '.ico': 'image/x-icon', '.html': 'text/html', '.js': 'text/javascript',
@@ -29,9 +30,11 @@ module.exports = async function (context, req) {
     var ext = getExtension(file);
     var contentType = mimeType[ext] || 'text/plain';
 
+    let data;
+
     try {
         context.log('GET ' + __dirname + "//..//content//" + file);
-        const data = await readFileAsync(__dirname + "//..//content//" + file);
+        data = await readFileAsync(__dirname + "//..//content//" + file);
 
         context.res = {
             status: 200,

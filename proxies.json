@@ -1,6 +1,12 @@
 {
     "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
+        "API Proxy": {
+            "matchCondition": {
+                "route": "/api/getrequest"
+            },
+            "backendUri": "https://localhost/api/getrequest"
+        },
         "File Proxy": {
             "matchCondition": {
                 "route": "/{*file}",

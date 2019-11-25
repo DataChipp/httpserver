@@ -1,5 +1,5 @@
-# httpserver
-An HTTP Server implemented using Azure Functions
+# proxyserver
+A Proxy Server for APIs and static assets implemented using Azure Functions
 
 ### Running with port 8080:
 

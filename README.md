@@ -39,6 +39,16 @@ Value = https://localhost
 ```
 
 
+## Roadmap
+1. additional error handling    
+2. be a proxy for datachipp dataserver  
+3. create blog UI using proxy for static files and dataserver for data  
+  
+
+
+
+
+
 
 
 

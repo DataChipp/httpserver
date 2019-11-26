@@ -1,17 +1,62 @@
 
 @prefix = http
-@hostname= localhost:8080
+@hostname= localhost:7071
 @table= dev
 @partition = part1
 
 ###
 
-# @name getItems
-GET {{prefix}}://{{hostname}}/api/items/{{table}}/{{partition}} HTTP/1.1
-Proxy-Trace-Enabled: true
+# @name getChipp
+GET {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}} HTTP/1.1
+
+
+###
+# @name createChipp
+POST {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}} HTTP/1.1
+content-type: application/json
+
+{
+    "mynum@data.type":"Edm.Int32",
+    "mynum": 1,
+    "mybool@odata.type":"Edm.Boolean",  
+    "mybool": false,    
+    "mytext": "test text"
+}
+
+###
+@chippId = {{createChipp.response.body.RowKey._}}
+
+# @name getChipp
+GET {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
+
+
+###
+# @name updateChipp
+PUT {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
+content-type: application/json
+
+{
+    "mynum": 1,
+    "mybool": true,    
+    "mytext": "test text"
+}
+
+###
+# @name deleteChipp
+DELETE {{prefix}}://{{hostname}}/api/chipps/{{table}}/{{partition}}/{{chippId}} HTTP/1.1
 
 ###
 
-# @name getItems
-GET {{prefix}}://{{hostname}}/posts/1 HTTP/1.1
-Proxy-Trace-Enabled: true
+
+
+### ---- Datatypes for Azure Storage
+Edm.Binary	byte[]	An array of bytes up to 64 KB in size.
+Edm.Boolean	bool	A Boolean value.
+Edm.DateTime	DateTime	A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999.
+Edm.Double	double	A 64-bit floating point value.
+Edm.Guid	Guid	A 128-bit globally unique identifier.
+Edm.Int32	Int32 or int	A 32-bit integer.
+Edm.Int64	Int64 or long	A 64-bit integer.
+Edm.String	String	A UTF-16-encoded value. String values may be up to 64 KB in size. Note that the maximum number of characters supported is about 32 K or less.
+###
+

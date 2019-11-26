@@ -1,37 +1,36 @@
 {
     "proxies": {
-        "chipps.get": {
+        "chipps.create": {
             "matchCondition": {
-                "methods": [
-                    "GET"
-                ],
+                "methods": [ "POST" ],
+                "route": "/api/chipps/{table}/{partition}"
+            },
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+        },        
+        "chipps.read": {
+            "matchCondition": {
+                "methods": [ "GET" ],
                 "route": "/api/chipps/{table}/{partition}/{id}"
             },
             "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
         },
-        "chipps.getall": {
+        "chipps.readall": {
             "matchCondition": {
-                "methods": [
-                    "GET"
-                ],
+                "methods": [ "GET" ],
                 "route": "/api/chipps/{table}/{partition}"
             },
             "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
         },
         "chipps.update": {
             "matchCondition": {
-                "methods": [
-                    "PUT"
-                ],
-                "route": "/api/chipps/{table}/{partition}"
+                "methods": [ "PUT" ],
+                "route": "/api/chipps/{table}/{partition}/{id}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
         },
         "chipps.delete": {
             "matchCondition": {
-                "methods": [
-                    "DELETE"
-                ],
+                "methods": [ "DELETE"],
                 "route": "/api/chipps/{table}/{partition}/{id}"
             },
             "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
@@ -39,9 +38,7 @@
         "file.get": {
             "matchCondition": {
                 "route": "/{*file}",
-                "methods": [
-                    "GET"
-                ]
+                "methods": [ "GET" ]
             },
             "backendUri": "%file_api%/api/getfile?file={file}"
         }

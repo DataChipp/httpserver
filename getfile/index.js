@@ -1,8 +1,20 @@
 // include file system library
 const fs = require("fs");
-const util = require('util');
-const readFileAsync = util.promisify(fs.readFile);
-//fs read async: https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node
+
+// promisfy fs readfile to use async/await
+async function readFileAsync(fs, ...args) {
+    return new Promise((resolve, reject) => {
+        let promiseHandling = (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(result);
+            }
+        };
+        args.push(promiseHandling);
+        fs.readFile.apply(fs, args);
+    });
+};
 
 const mimeType = {
     '.ico': 'image/x-icon', '.html': 'text/html', '.js': 'text/javascript',
@@ -34,7 +46,7 @@ module.exports = async function (context, req) {
 
     try {
         context.log('GET ' + __dirname + "//..//content//" + file);
-        data = await readFileAsync(__dirname + "//..//content//" + file);
+        data = await readFileAsync(fs, __dirname + "//..//content//" + file);
 
         context.res = {
             status: 200,

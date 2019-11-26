@@ -1,15 +1,49 @@
 {
-    "$schema": "http://json.schemastore.org/proxies",
     "proxies": {
-        "File Proxy": {
-            "debug":true,
+        "chipps.get": {
+            "matchCondition": {
+                "methods": [
+                    "GET"
+                ],
+                "route": "/api/chipps/{table}/{partition}/{id}"
+            },
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
+        },
+        "chipps.getall": {
+            "matchCondition": {
+                "methods": [
+                    "GET"
+                ],
+                "route": "/api/chipps/{table}/{partition}"
+            },
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+        },
+        "chipps.update": {
+            "matchCondition": {
+                "methods": [
+                    "PUT"
+                ],
+                "route": "/api/chipps/{table}/{partition}"
+            },
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+        },
+        "chipps.delete": {
+            "matchCondition": {
+                "methods": [
+                    "DELETE"
+                ],
+                "route": "/api/chipps/{table}/{partition}/{id}"
+            },
+            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
+        },
+        "file.get": {
             "matchCondition": {
                 "route": "/{*file}",
                 "methods": [
                     "GET"
                 ]
             },
-            "backendUri": "%WEB_HOST%/api/getfile?file={file}"
+            "backendUri": "%file_api%/api/getfile?file={file}"
         }
     }
 }

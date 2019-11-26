@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "func",
-            "command": "host start --port 8080",
+            "command": "host start --port 7071",
             "problemMatcher": "$func-watch",
             "isBackground": true,
             "dependsOn": "npm install"

@@ -1,8 +1,10 @@
 {
   "IsEncrypted": false,
   "Values": {
+    "AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL": true,
     "FUNCTIONS_WORKER_RUNTIME": "node",
     "AzureWebJobsStorage": "{AzureWebJobsStorage}",
-    "WEB_HOST": "http://localhost:8080"
+    "file_api": "http://localhost:7072",
+    "chipps_api": "http://localhost:7073"
   }
 }

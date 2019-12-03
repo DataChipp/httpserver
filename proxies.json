@@ -3,37 +3,37 @@
         "chipps.create": {
             "matchCondition": {
                 "methods": [ "POST" ],
-                "route": "/api/chipps/{table}/{partition}"
+                "route": "/api/data/{table}/{partition}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+            "backendUri": "%data_api%/api/data/{table}/{partition}"
         },        
         "chipps.read": {
             "matchCondition": {
                 "methods": [ "GET" ],
-                "route": "/api/chipps/{table}/{partition}/{id}"
+                "route": "/api/data/{table}/{partition}/{id}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
+            "backendUri": "%data_api%/api/data/{table}/{partition}/{id}"
         },
         "chipps.readall": {
             "matchCondition": {
                 "methods": [ "GET" ],
-                "route": "/api/chipps/{table}/{partition}"
+                "route": "/api/data/{table}/{partition}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}"
+            "backendUri": "%data_api%/api/data/{table}/{partition}"
         },
         "chipps.update": {
             "matchCondition": {
                 "methods": [ "PUT" ],
-                "route": "/api/chipps/{table}/{partition}/{id}"
+                "route": "/api/data/{table}/{partition}/{id}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
+            "backendUri": "%data_api%/api/data/{table}/{partition}/{id}"
         },
         "chipps.delete": {
             "matchCondition": {
                 "methods": [ "DELETE"],
-                "route": "/api/chipps/{table}/{partition}/{id}"
+                "route": "/api/data/{table}/{partition}/{id}"
             },
-            "backendUri": "%chipps_api%/api/chipps/{table}/{partition}/{id}"
+            "backendUri": "%data_api%/api/data/{table}/{partition}/{id}"
         },
         "file.get": {
             "matchCondition": {

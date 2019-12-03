@@ -1,7 +1,7 @@
 # proxyserver
 A Proxy Server for APIs and static assets implemented using Azure Functions
 
-### Running with port 8080:
+### Running with port 7071:
 
 **VS Code**
 ```javascript
@@ -10,7 +10,7 @@ run from the debugger
 
 **Terminal**
 ```javascript
-func start --port 8080
+func start --port 7071
 ```
 
 **Azure Function**
@@ -34,10 +34,20 @@ Click the "Platform features" tab
 Click the "Configuration" link
 Click the "+ New application setting"
 ```
-Name  = WEB_HOST
-Value = https://localhost
-```
+Name  = file_api
+Value = [value of file api for example https://datachippfile.azurewebsites.net 
+   
+Name  = data_api
+Value = [value of file api for example https://datachippdata.azurewebsites.net
 
+
+```
+Click Save
+
+Try a get from the browser (use test.http to test too)  
+```javascript
+https://datachipp.azurewebsites.net/api/data/blog/default
+```
 
 ## Roadmap
 1. additional error handling    
